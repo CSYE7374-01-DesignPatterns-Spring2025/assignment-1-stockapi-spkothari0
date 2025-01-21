@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TechStock extends Stock {
-    List<Integer> bidList = new ArrayList<>();
+
     public TechStock(String name, double price, String description) {
         super(name, price, description);
     }
@@ -14,14 +14,6 @@ public class TechStock extends Stock {
         int bidValue= Integer.parseInt(bid);
         bidList.add(bidValue);
         setPrice(bidValue);
-//        double difference = bidValue - this.getPrice();
-//        if(difference>0)
-//            System.out.println("The price was increased by " + difference);
-//        else if(difference<0)
-//            System.out.println("The price was decreased by " + Math.abs(difference));
-//        else
-//            System.out.println("The price remained unchanged");
-
         System.out.println("The price for " + this.getName() + " is now " + bidValue);
     }
 
@@ -36,7 +28,10 @@ public class TechStock extends Stock {
 
     @Override
     public String toString() {
-        return "TechStock { " + this.getName() + " - " + this.getDescription()
-                + " - Current Price: " + this.getPrice() +" }";
+        return "------------Stock Name: " + this.getName() + "------------" + "\n" +
+                "Price: " + this.getPrice() + "\n" +
+                "Description: " + this.getDescription() + "\n" +
+                "Final Bid: " + bidList.get(bidList.size()-1) + "\n" +
+                getMetric();
     }
 }

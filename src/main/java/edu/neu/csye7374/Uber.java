@@ -1,34 +1,35 @@
 package edu.neu.csye7374;
 
+import java.util.Collections;
+
 public class Uber extends Stock {
-
-    private double maxBid = super.getPrice();
-
     public Uber(String name, double price, String description) {
         super(name, price, description);
     }
 
     @Override
     public void setBid(String bid) {
-        double bidValue = Double.parseDouble(bid);
-        if (bidValue > maxBid) {
-            maxBid = bidValue;
-        }
-        System.out.println("Uber Bid: " + bidValue);
+        int bidValue= Integer.parseInt(bid);
+        bidList.add(bidValue);
+        setPrice(bidValue);
+        System.out.println("The price for " + this.getName() + " is now " + bidValue);
     }
 
     @Override
     public String getMetric() {
-        double performanceMetric = ((maxBid - super.getPrice()) / super.getPrice()) * 100;
-        return Double.toString(performanceMetric);
+        int maxBid = Collections.max(bidList);
+        int firstBid = bidList.get(0);
+        double performanceMetric = (double) (maxBid - firstBid) / maxBid * 100;
+        return String.format("The Metric for %s: %%Change in Bid for the past %d records is: %.2f%%",
+                this.getName(), bidList.size(), performanceMetric);
     }
 
     @Override
     public String toString() {
-        return "------------Stock Name: " + super.getName() + "------------" + "\n" +
-                "Price: " + super.getPrice() + "\n" +
-                "Description: " + super.getDescription() + "\n" +
-                "Final Bid: " + maxBid + "\n" +
-                "Performance Metric: " + getMetric() + "% increase in stock price";
+        return "------------Stock Name: " + this.getName() + "------------" + "\n" +
+                "Price: " + this.getPrice() + "\n" +
+                "Description: " + this.getDescription() + "\n" +
+                "Final Bid: " + bidList.get(bidList.size()-1) + "\n" +
+                getMetric();
     }
 }

@@ -55,18 +55,6 @@ public class StockMarket {
         System.out.println(techStock.getMetric());
         System.out.println();
 
-        Stock payPalStock = new PayPal("PayPal", 200, "The PayPal stock in the world of Technology");
-        stockMarket.addStock(payPalStock);
-
-        stockMarket.tradeStock("PayPal", "140");
-        stockMarket.tradeStock("PayPal", "145");
-        stockMarket.tradeStock("PayPal", "155");
-        stockMarket.tradeStock("PayPal", "100");
-        stockMarket.tradeStock("PayPal", "70");
-        stockMarket.tradeStock("PayPal", "60");
-
-        System.out.println(payPalStock.getMetric());
-        System.out.println();
 
         Stock uber = new Uber("Uber", 131.15, "Uber Stock");
         stockMarket.addStock(uber);
@@ -77,31 +65,8 @@ public class StockMarket {
         stockMarket.tradeStock("Uber", "170");
         stockMarket.tradeStock("Uber", "180");
 
-        System.out.println(uber.getMetric() + "% increase in Stock Price");
+        System.out.println(uber.getMetric());
         System.out.println();
-
-        Stock innovTechStock = new InnovativeTechStock();
-        stockMarket.addStock(innovTechStock);
-        stockMarket.tradeStock("TechCorp", "220");
-        stockMarket.tradeStock("TechCorp", "240");
-        stockMarket.tradeStock("TechCorp", "260");
-        stockMarket.tradeStock("TechCorp", "280");
-        stockMarket.tradeStock("TechCorp", "300");
-        stockMarket.tradeStock("TechCorp", "320");
-
-        System.out.println(innovTechStock.getMetric());
-        System.out.println();
-
-        PennyStock pennyStock = new PennyStock("PennyStock01", 0.50, "A highly volatile stock");
-
-        // Display initial stock details
-        System.out.println(pennyStock);
-        stockMarket.addStock(pennyStock);
-        stockMarket.tradeStock("PennyStock01","0.55");
-        stockMarket.tradeStock("PennyStock01","0.68");
-        stockMarket.tradeStock("PennyStock01","0.45");
-        stockMarket.tradeStock("PennyStock01","0.89");
-        stockMarket.tradeStock("PennyStock01","0.58");
 
         System.out.println("<------------------------Bidding End------------------------>");
 
